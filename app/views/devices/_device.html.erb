@@ -14,4 +14,9 @@
     <%= device.category_id %>
   </p>
 
+  <p>
+    <strong>Assigned to:</strong>
+    <%= link_to(device.employee.full_name, device.employee) if device.employee %>
+  </p>
+
 </div>

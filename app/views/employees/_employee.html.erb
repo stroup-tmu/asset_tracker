@@ -9,4 +9,13 @@
     <%= employee.last_name %>
   </p>
 
+  <p>
+    <strong>Assigned Devices:</strong>
+    <ul>
+      <% employee.devices.each do |device| %>
+        <li><%= link_to device.name, device %></li>
+      <% end %>
+    </ul>
+  </p>
+
 </div>

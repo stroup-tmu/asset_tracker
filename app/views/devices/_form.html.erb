@@ -7,7 +7,7 @@
     <%= f.input :name %>
     <%= f.association :manufacturer %>
     <%= f.association :category %>
-    <%= f.association :employee %>
+    <%= f.association :employee, :label_method => :full_name %>
   </div>
 
   <div class="form-actions">
