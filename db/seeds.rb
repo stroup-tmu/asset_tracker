@@ -40,8 +40,8 @@ Software.create(
   [
     { name: "Microsoft Windows", :license_count => 2 },
     { name: "Microsoft Office", :license_count => 2 },
-    { name: "Dropbox", :license_count => 10 },
-    { name: "Gmail", :license_count => 11 },
+    { name: "Dropbox", :license_count => 5 },
+    { name: "Gmail", :license_count => 5 },
   ]
 )
 
