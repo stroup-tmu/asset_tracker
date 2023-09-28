@@ -11,22 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_09_28_030000) do
-  create_table "asset_types", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "assets", force: :cascade do |t|
-    t.string "name"
-    t.integer "asset_type_id", null: false
-    t.integer "manufacturer_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["asset_type_id"], name: "index_assets_on_asset_type_id"
-    t.index ["manufacturer_id"], name: "index_assets_on_manufacturer_id"
-  end
-
   create_table "assets_employees", id: false, force: :cascade do |t|
     t.integer "asset_id", null: false
     t.integer "employee_id", null: false
@@ -46,6 +30,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_030000) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "assets", "asset_types"
-  add_foreign_key "assets", "manufacturers"
 end

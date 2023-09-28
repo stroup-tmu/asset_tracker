@@ -1,2 +1,0 @@
-class AssetType < ApplicationRecord
-end
