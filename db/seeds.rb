@@ -16,11 +16,11 @@ Category.create(
 
 Manufacturer.create(
   [
-    { name: "Apple" },
-    { name: "Dell" },
-    { name: "Lenovo" },
-    { name: "Microsoft" },
-    { name: "Samsung" }
+    { name: "Apple", website: "https://www.apple.com" },
+    { name: "Dell", website: "https://www.dell.com" },
+    { name: "Lenovo", website: "https://www.lenovo.com" },
+    { name: "Microsoft", website: "https://www.microsoft.com" },
+    { name: "Samsung", website: "https://www.samsung.com" }
   ]
 )
 
