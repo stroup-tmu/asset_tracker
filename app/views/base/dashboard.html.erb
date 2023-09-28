@@ -1,0 +1,47 @@
+<h1>Dashboard</h1>
+
+<h2 class="mt-5">Device Usage</h2>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Total</th>
+      <th>Assigned</th>
+      <th>Available</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Category.all.each do |c| %>
+      <tr>
+        <td><%= c.name %></td>
+        <td><%= c.devices.count %></td>
+        <td><%= c.devices.where.not(:employee => nil).count %></td>
+        <td><%= c.devices.where(:employee => nil).count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2 class="mt-5">Software Compliance</h2>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>License Count</th>
+      <th>Employee Count</th>
+      <th>Compliant?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Software.all.each do |s| %>
+      <tr>
+        <td><%= s.name %></td>
+        <td><%= s.license_count %></td>
+        <td><%= s.employees.count %></td>
+        <td><%= s.compliant? %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
