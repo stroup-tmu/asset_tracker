@@ -1,12 +1,7 @@
 <div id="<%= dom_id employee %>">
   <p>
-    <strong>First name:</strong>
-    <%= employee.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= employee.last_name %>
+    <strong>Full Name:</strong>
+    <%= employee.full_name %>
   </p>
 
   <p>
@@ -18,4 +13,12 @@
     </ul>
   </p>
 
+  <p>
+    <strong>Assigned Software:</strong>
+    <ul>
+      <% employee.softwares.each do |software| %>
+        <li><%= link_to software.name, software %></li>
+      <% end %>
+    </ul>
+  </p>
 </div>

@@ -1,0 +1,15 @@
+
+<%= simple_form_for(@software) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :license_count %>
+    <%= f.association :employees, :label_method => :full_name, :as => :check_boxes %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
