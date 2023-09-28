@@ -4,10 +4,12 @@
 
 <div id="softwares">
   <% @softwares.each do |software| %>
-    <%= render software %>
-    <p>
-      <%= link_to "Show this software", software %>
-    </p>
+    <div class="card m-3 p-3">
+      <%= render software %>
+      <p>
+        <%= link_to "Show this software", software %>
+      </p>
+    </div>
   <% end %>
 </div>
 

@@ -4,10 +4,12 @@
 
 <div id="manufacturers">
   <% @manufacturers.each do |manufacturer| %>
-    <%= render manufacturer %>
-    <p>
-      <%= link_to "Show this manufacturer", manufacturer %>
-    </p>
+    <div class="card m-3 p-3">
+      <%= render manufacturer %>
+      <p>
+        <%= link_to "Show this manufacturer", manufacturer %>
+      </p>
+    </div>
   <% end %>
 </div>
 

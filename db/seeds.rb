@@ -25,12 +25,13 @@ Manufacturer.create(
 )
 
 2.times do |i|
+  n = i + 1
   Device.create!(
     [
-      { name: "iPhone #{i}", manufacturer: Manufacturer.find_by(name: "Apple"), category: Category.find_by(name: "Smart Phone") },
-      { name: "Dell Inspiron #{i}", manufacturer: Manufacturer.find_by(name: "Dell"), category: Category.find_by(name: "Desktop") },
-      { name: "Lenovo Thinkpad #{i}", manufacturer: Manufacturer.find_by(name: "Lenovo"), category: Category.find_by(name: "Laptop") },
-      { name: "Samsung Galaxy #{i}", manufacturer: Manufacturer.find_by(name: "Samsung"), category: Category.find_by(name: "Smart Phone") }
+      { name: "iPhone #{n}", manufacturer: Manufacturer.find_by(name: "Apple"), category: Category.find_by(name: "Smart Phone") },
+      { name: "Dell Inspiron #{n}", manufacturer: Manufacturer.find_by(name: "Dell"), category: Category.find_by(name: "Desktop") },
+      { name: "Lenovo Thinkpad #{n}", manufacturer: Manufacturer.find_by(name: "Lenovo"), category: Category.find_by(name: "Laptop") },
+      { name: "Samsung Galaxy #{n}", manufacturer: Manufacturer.find_by(name: "Samsung"), category: Category.find_by(name: "Smart Phone") }
     ]
   )
 end
