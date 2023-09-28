@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @asset_type %>
+
+<div>
+  <%= link_to "Edit this asset type", edit_asset_type_path(@asset_type) %> |
+  <%= link_to "Back to asset types", asset_types_path %>
+
+  <%= button_to "Destroy this asset type", @asset_type, method: :delete %>
+</div>
