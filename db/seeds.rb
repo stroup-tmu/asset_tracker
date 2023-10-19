@@ -8,57 +8,64 @@
 
 Category.create(
   [
-    { name: "Desktop" },
+    { name: "Smart Phone" },
     { name: "Laptop" },
-    { name: "Smart Phone" }
+    { name: "Desktop" }
   ]
 )
 
 Manufacturer.create(
   [
     { name: "Apple", website: "https://www.apple.com" },
-    { name: "Dell", website: "https://www.dell.com" },
     { name: "Lenovo", website: "https://www.lenovo.com" },
-    { name: "Microsoft", website: "https://www.microsoft.com" },
-    { name: "Samsung", website: "https://www.samsung.com" }
+    { name: "Dell", website: "https://www.dell.com" },
   ]
 )
 
-2.times do |i|
-  n = i + 1
-  Device.create!(
-    [
-      { name: "iPhone #{n}", manufacturer: Manufacturer.find_by(name: "Apple"), category: Category.find_by(name: "Smart Phone") },
-      { name: "Dell Inspiron #{n}", manufacturer: Manufacturer.find_by(name: "Dell"), category: Category.find_by(name: "Desktop") },
-      { name: "Lenovo Thinkpad #{n}", manufacturer: Manufacturer.find_by(name: "Lenovo"), category: Category.find_by(name: "Laptop") },
-      { name: "Samsung Galaxy #{n}", manufacturer: Manufacturer.find_by(name: "Samsung"), category: Category.find_by(name: "Smart Phone") }
-    ]
+#Employee.create(
+#  [
+#    { first_name: "John", last_name: "Doe" },
+#    { first_name: "Jill", last_name: "Doe" },
+#    { first_name: "James", last_name: "Doe" },
+#    { first_name: "Jane", last_name: "Doe" },
+#  ]
+#)
+
+5.times do |index|
+  Employee.create(
+    :first_name => "Employee",
+    :last_name => index
   )
 end
 
-Software.create(
-  [
-    { name: "Microsoft Windows", :license_count => 2 },
-    { name: "Microsoft Office", :license_count => 2 },
-    { name: "Dropbox", :license_count => 5 },
-    { name: "Gmail", :license_count => 5 },
-  ]
-)
+Employee.all.each do |employee|
+  Device.create!([
+    { name: "Smart Phone #{employee.id}", manufacturer: Manufacturer.first, category: Category.first },
+    { name: "Laptop #{employee.id}", manufacturer: Manufacturer.offset(1).first, category: Category.offset(1).first },
+  ])
+end
 
-Employee.create(
-  [
-    { first_name: "John", last_name: "Doe" },
-    { first_name: "Jill", last_name: "Doe" },
-    { first_name: "James", last_name: "Doe" },
-    { first_name: "Jane", last_name: "Doe" },
-  ]
-)
+#Software.create(
+#  [
+#    { name: "Microsoft Windows", :license_count => 2 },
+#    { name: "Microsoft Office", :license_count => 2 },
+#    { name: "Dropbox", :license_count => 5 },
+#    { name: "Gmail", :license_count => 5 },
+#  ]
+#)
 
-2.times do
+5.times do |index|
+  Software.create(
+    name: "Software #{index}",
+    license_count: rand(1..5)
+  )
+end
+
+3.times do
   Employee.all.each do |e|
-    if Device.where(employee: nil).present?
-      e.devices << Device.where(employee: nil)[rand(0..(Device.where(employee: nil).count - 1))]
-    end
+  # if Device.where(employee: nil).present?
+  #   e.devices << Device.where(employee: nil)[rand(0..(Device.where(employee: nil).count - 1))]
+  # end
     e.softwares << Software.all[rand(0..(Software.all.count - 1))]
   end
 end
