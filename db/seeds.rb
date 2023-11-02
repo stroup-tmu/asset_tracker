@@ -22,37 +22,32 @@ Manufacturer.create(
   ]
 )
 
-#Employee.create(
-#  [
-#    { first_name: "John", last_name: "Doe" },
-#    { first_name: "Jill", last_name: "Doe" },
-#    { first_name: "James", last_name: "Doe" },
-#    { first_name: "Jane", last_name: "Doe" },
-#  ]
-#)
-
 5.times do |index|
   Employee.create(
     :first_name => "Employee",
-    :last_name => index
+    :last_name => index + 1
   )
 end
 
-Employee.all.each do |employee|
-  Device.create!([
-    { name: "Smart Phone #{employee.id}", manufacturer: Manufacturer.first, category: Category.first },
-    { name: "Laptop #{employee.id}", manufacturer: Manufacturer.offset(1).first, category: Category.offset(1).first },
-  ])
+Category.all.each do |c|
+  Manufacturer.all.each do |m|
+    3.times do
+      Device.create(
+        name: "Device #{rand(1..100)}",
+        category: c,
+        manufacturer: m
+      )
+    end
+  end
 end
 
-#Software.create(
-#  [
-#    { name: "Microsoft Windows", :license_count => 2 },
-#    { name: "Microsoft Office", :license_count => 2 },
-#    { name: "Dropbox", :license_count => 5 },
-#    { name: "Gmail", :license_count => 5 },
-#  ]
-#)
+3.times do
+  Employee.all.each do |e|
+    device = Device.where(:employee_id => nil).sample
+    device.employee = e
+    device.save
+  end
+end
 
 5.times do |index|
   Software.create(
@@ -63,9 +58,6 @@ end
 
 3.times do
   Employee.all.each do |e|
-  # if Device.where(employee: nil).present?
-  #   e.devices << Device.where(employee: nil)[rand(0..(Device.where(employee: nil).count - 1))]
-  # end
     e.softwares << Software.all[rand(0..(Software.all.count - 1))]
   end
 end

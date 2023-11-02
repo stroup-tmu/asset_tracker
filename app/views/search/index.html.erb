@@ -30,7 +30,7 @@
 
   <ul>
     <% @devices.all.each do |d| %>
-      <li><%= link_to d.name, device_path(d) %></li>
+      <li><%= link_to "#{d.name} (#{d.manufacturer.name}/#{d.category.name})", device_path(d) %></li>
     <% end %>
   </ul>
 <% else %>
