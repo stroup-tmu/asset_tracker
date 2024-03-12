@@ -69,6 +69,8 @@ group :development do
   gem "capistrano-bundler", require: false
   gem 'capistrano-rvm', require: false
   gem 'elbas', require: false
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :test do
