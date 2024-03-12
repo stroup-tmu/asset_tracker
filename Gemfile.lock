@@ -220,6 +220,7 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
+    sd_notify (0.1.1)
     selenium-webdriver (4.13.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -282,6 +283,7 @@ DEPENDENCIES
   importmap-rails
   puma (~> 5.0)
   rails (~> 7.0.8)
+  sd_notify
   selenium-webdriver
   simple_form
   sprockets-rails
