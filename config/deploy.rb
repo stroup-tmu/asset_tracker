@@ -69,7 +69,7 @@ task :restart_sidekiq do
   end
 end
 
-after "deploy:published", "restart_sidekiq"
+# after "deploy:published", "restart_sidekiq"
 
 # Set AWS Credentials for Autoscaling (must have full read/write access to EC2)
 set :aws_region,     ENV['AWS_REGION']
