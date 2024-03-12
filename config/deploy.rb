@@ -23,6 +23,7 @@ set :deploy_to, "/var/www/rails"
 # Default value for :linked_files is []
 # append :linked_files, 'config/secrets.yml'
 # append :linked_files, 'config/database.yml'
+append :linked_files, 'db/production.sqlite3'
 
 # Default value for linked_dirs is []
 ## Server Files
